@@ -1,0 +1,241 @@
+/* Roadmap Section - Diseño mejorado sin sobreposiciones */
+.roadmapSection {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.roadmapSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 45%),
+              radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
+              radial-gradient(circle at 60% 60%, rgba(16, 185, 129, 0.06) 0%, transparent 35%);
+  animation: bubbleFloat3 30s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes bubbleFloat3 {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.05) rotate(90deg); }
+  50% { transform: scale(0.95) rotate(180deg); }
+  75% { transform: scale(1.02) rotate(270deg); }
+}
+
+.roadmapContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.roadmapHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.roadmapTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.roadmapDescription {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: #ffffff;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Timeline mejorada - sin sobreposiciones */
+.timelineContainer {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 2rem;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #10b981, #059669, #047857);
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .timelineLine {
+    display: none;
+  }
+}
+
+.timelineItems {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.timelineItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .timelineItem {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.timelineDot {
+  position: absolute;
+  left: 1.25rem;
+  top: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: 4px solid white;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  z-index: 3;
+}
+
+@media (max-width: 768px) {
+  .timelineDot {
+    display: none;
+  }
+}
+
+.timelineCard {
+  flex: 1;
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  border: 2px solid #e2e8f0;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  margin-left: 4rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .timelineCard {
+    margin-left: 0;
+    padding: 2rem;
+  }
+}
+
+.timelineCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border-color: #10b981;
+}
+
+.timelineCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #059669);
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.weekBadge {
+  display: inline-block;
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  color: #166534;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.moduleTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.moduleDescription {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.skillItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(16, 185, 129, 0.05);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  transition: all 0.2s ease;
+}
+
+.skillItem:hover {
+  background: rgba(16, 185, 129, 0.1);
+  transform: translateX(4px);
+}
+
+.skillIcon {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.skillText {
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+/* Decorative elements */
+.decorativeElement {
+  position: absolute;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.decorativeCircle1 {
+  top: 10%;
+  right: 10%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, #10b981, transparent);
+  border-radius: 50%;
+}
+
+.decorativeCircle2 {
+  bottom: 20%;
+  left: 5%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #059669, transparent);
+  border-radius: 50%;
+}

@@ -1,0 +1,248 @@
+/* Testimonials Section - Carrusel mejorado sin sobreposiciones */
+.testimonialsSection {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonialsSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+              radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.06) 0%, transparent 40%),
+              radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.04) 0%, transparent 30%);
+  animation: bubbleFloat4 22s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes bubbleFloat4 {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-15px) scale(1.02); }
+}
+
+.testimonialsContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonialsHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.testimonialsTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.testimonialsDescription {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Carrusel mejorado */
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonialCard {
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  border: 2px solid #e2e8f0;
+  border-radius: 2rem;
+  padding: 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .testimonialCard {
+    padding: 2rem;
+    min-height: 350px;
+  }
+}
+
+.testimonialCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #059669);
+  border-radius: 2rem 2rem 0 0;
+}
+
+.avatarContainer {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #10b981;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+.starsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+}
+
+.star {
+  color: #fbbf24;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.testimonialContent {
+  font-size: 1.2rem;
+  color: #374151;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-style: italic;
+  position: relative;
+}
+
+.testimonialContent::before {
+  content: '"';
+  font-size: 4rem;
+  color: #10b981;
+  position: absolute;
+  top: -1rem;
+  left: -2rem;
+  opacity: 0.3;
+}
+
+.testimonialAuthor {
+  text-align: center;
+}
+
+.authorName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.authorRole {
+  font-size: 1rem;
+  color: #10b981;
+  font-weight: 500;
+}
+
+/* Controles del carrusel */
+.carouselControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.carouselButton {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.carouselButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+}
+
+.carouselButton:active {
+  transform: scale(0.95);
+}
+
+.carouselButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Indicadores */
+.carouselIndicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.indicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #cbd5e1;
+}
+
+.indicator.active {
+  background: #10b981;
+  transform: scale(1.2);
+}
+
+.indicator:hover {
+  background: #64748b;
+}
+
+/* Elementos decorativos */
+.decorativeQuote {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 6rem;
+  color: #10b981;
+  opacity: 0.1;
+  font-family: serif;
+  pointer-events: none;
+}
+
+.decorativePattern {
+  position: absolute;
+  bottom: -2rem;
+  left: -2rem;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #10b981, transparent);
+  opacity: 0.1;
+  border-radius: 50%;
+}

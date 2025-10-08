@@ -1,0 +1,78 @@
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
+  animation: bubbleFloat 20s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes bubbleFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-20px) rotate(120deg); }
+  66% { transform: translateY(10px) rotate(240deg); }
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  gap: 2rem;
+}
+
+.heroTitle {
+  text-align: center;
+  margin: 0 auto 3rem auto;
+  line-height: 0.9 !important;
+  letter-spacing: -0.02em;
+  padding: 0 1rem;
+}
+
+.heroDescription {
+  text-align: center;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6 !important;
+  max-width: 700px;
+  padding: 0 1rem;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+.heroButtons button {
+  padding: 1rem 2rem !important;
+  font-size: 1.1rem !important;
+  line-height: 1.4 !important;
+  min-height: 3.5rem;
+}
