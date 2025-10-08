@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Code, Rocket, Clock } from 'lucide-react';
 import styles from './AboutSection.module.css';
@@ -106,7 +107,7 @@ export default function AboutSection() {
                 }}
                 transition={{ duration: 0.6 }}
               >
-                <feature.icon size={32} />
+                {React.createElement(feature.icon, { size: 32 })}
               </motion.div>
               
               <h3 className={styles.featureTitle}>{feature.title}</h3>
