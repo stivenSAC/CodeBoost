@@ -96,7 +96,7 @@ export default function TestimonialsSection() {
               exit={{ opacity: 0, x: -300 }}
               transition={{ 
                 duration: 0.5,
-                ease: "easeInOut"
+                ease: "easeInOut" as const
               }}
               className={styles.testimonialCard}
             >

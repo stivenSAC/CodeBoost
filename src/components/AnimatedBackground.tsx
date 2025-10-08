@@ -30,8 +30,8 @@ export default function AnimatedBackground() {
           transition={{
             duration: particle.duration,
             repeat: Infinity,
-            repeatType: "reverse",
-            ease: "linear",
+            repeatType: "reverse" as const,
+            ease: "linear" as const,
           }}
         />
       ))}
@@ -46,7 +46,7 @@ export default function AnimatedBackground() {
         transition={{
           duration: 8,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: "easeInOut" as const,
         }}
       />
       
@@ -59,7 +59,7 @@ export default function AnimatedBackground() {
         transition={{
           duration: 10,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: "easeInOut" as const,
         }}
       />
     </div>

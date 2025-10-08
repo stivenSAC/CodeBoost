@@ -81,7 +81,7 @@ export default function PricingSection() {
               transition={{ 
                 duration: 0.8, 
                 delay: index * 0.2,
-                type: "spring",
+                type: "spring" as const,
                 damping: 15
               }}
               viewport={{ once: true, margin: "-50px" }}
